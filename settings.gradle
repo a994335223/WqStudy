@@ -1,2 +1,3 @@
+include ':reflexlibrary'
 include ':app'
 rootProject.name = "WqStudy"
