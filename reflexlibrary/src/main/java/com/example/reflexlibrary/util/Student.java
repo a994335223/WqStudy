@@ -1,7 +1,10 @@
-package com.example.reflexlibrary.bean;
+package com.example.reflexlibrary.util;
 
+/**
+ * 测试数据<br/>
+ * bean
+ */
 public class Student {
-    //com.example.reflexlibrary.bean.Student
     public String name="三国";
     private int age=0;
 

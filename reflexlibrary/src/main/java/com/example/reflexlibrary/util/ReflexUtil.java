@@ -1,18 +1,23 @@
 package com.example.reflexlibrary.util;
 
-import android.util.Log;
-
-import com.example.reflexlibrary.bean.Student;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+/**
+ * 反编译<br/>
+ * 生成 注释文档<br/>
+ * 1 cd 到当前要生成文档类的目录<br/>
+ * 2 执行命令 javadoc -d doc ***.java （ javadoc -d doc ReflexUtil.java ）<br/>
+ */
 public class ReflexUtil {
-    private static final String className = "com.example.reflexlibrary.bean.Student";
+    private static final String className = "com.example.reflexlibrary.util.Student";
     private static final String TAG = "ReflexUtil";
-
+    /**
+     * 外部调用 <br/>
+     * 可展示反编译整体示例和用法
+     */
     public final static void ReflexFun() {
         //反射基本用法
         forNameReflexFun(className);
@@ -21,7 +26,10 @@ public class ReflexUtil {
         //使用反射构建
         useReflexFun();
     }
-
+    /**
+     * 反编译一些基础语法
+     *
+     */
     private static void forNameReflexFun(String className) {
         try {
 
@@ -81,7 +89,9 @@ public class ReflexUtil {
             e.printStackTrace();
         }
     }
-
+    /**
+     * 反编译实际应用 拷贝任意对象
+     */
     private static void copyObject() {
         Student student = new Student();
         try {
@@ -92,7 +102,9 @@ public class ReflexUtil {
         }
 
     }
-
+    /**
+     * 反编译实际应用 拷贝任意对象 实际操作
+     */
     private static Object copyObjectUt(Object originalObject) throws Exception {
 
         //Class<?> aClass = Class.forName(originalObject.getClass().getName()); //原class对象
@@ -109,6 +121,9 @@ public class ReflexUtil {
         return targetObject;
     }
 
+    /**
+     * 反编译实际应用 二维数组
+     */
     private static void useReflexFun() {
         try {
             Object array = Array.newInstance(Class.forName("java.lang.String"), 6);
@@ -129,6 +144,11 @@ public class ReflexUtil {
             Log.d(TAG, "useReflexFun: 自己构建二维数组 设置值后 取值 " + arrayTow1[1][2]);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+    static class Log {
+        public static void d(String tag, String msg) {
+             System.out.println(tag+" ===> "+msg);
         }
     }
 
